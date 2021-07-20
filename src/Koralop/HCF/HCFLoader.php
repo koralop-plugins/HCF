@@ -2,6 +2,7 @@
 
 namespace Koralop\HCF;
 
+use addon\Kraken;
 use Koralop\HCF\block\BlockManager;
 use Koralop\HCF\entity\EntityManager;
 use Koralop\HCF\events\InventoryListener;
@@ -51,11 +52,16 @@ class HCFLoader extends PluginBase
 
     public function onEnable(): void
     {
+        self::$yamlProvider = new YamlProvider($this);
+
+        $api = new Kraken();
+
+        if (!$api->checkToken(self::getYamlProvider()->getToken()))
+            return;
 
         if (!InvMenuHandler::isRegistered()) {
             InvMenuHandler::register($this);
         }
-
 
         $this->getServer()->getPluginManager()->registerEvents(new HCFListener(), $this);
         $this->getServer()->getPluginManager()->registerEvents(new PlayerListener(), $this);
@@ -65,8 +71,6 @@ class HCFLoader extends PluginBase
         $this->getScheduler()->scheduleRepeatingTask(new HCFTask($this), 20);
 
         self::$scoreboardManager = new ScoreboardManager($this);
-
-        self::$yamlProvider = new YamlProvider($this);
         self::$playerManager = new PlayerManager($this);
         self::$factionManager = new FactionManager($this);
         self::$modulesManager = new ModulesManager();

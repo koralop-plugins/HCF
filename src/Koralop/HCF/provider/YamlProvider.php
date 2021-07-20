@@ -166,4 +166,12 @@ class YamlProvider
         }
         return $factions;
     }
+
+    /**
+     * @return string
+     */
+    public function getToken(): string
+    {
+        return $this->getConfig()->get('token');
+    }
 }
