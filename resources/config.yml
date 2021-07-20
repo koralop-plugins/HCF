@@ -1,0 +1,80 @@
+
+# Author: Koralop
+scoreboard:
+  title: '§l§6Viper §r§7| §fInfernal'
+
+timers:
+  apple: 45
+  archer-mark: 10
+  bard-effect: 10
+  backstab: 1
+  combat: 45
+  enderpearl: 16
+  gapple: 3600
+  jump-effect: 60
+  home: 10
+  logout: 30
+  pvptimer: 1800
+  spawn: 45
+  speed-effect: 30
+  starting: 3600
+  stuck: 150
+  deathBan: 900
+  lff: 300 # The cooldown time for /lff
+
+### Faction Settings ###
+factions:
+  name:
+    min: 3
+    max: 16
+  members:
+    max: 5
+    instant-home-radius: 25 # The block radius for an instant /f home if there are no players in that radius
+  dtr:
+    max: 5.5
+    multiple: 1.1
+    death: 1.0 #How much dtr you lose
+    regen:
+      delay: 3 # In seconds
+      increment: 0.03
+  allies:
+    max: 0
+    attacking:
+      prevent: true # Disables attacking allies.
+      damage-multiplier: 0.5 # If "prevent" is false, this multiplier will be used on the damage amount. (1.0 to disable)
+
+map:
+  starter: '16/07/2021'
+  border: 2000
+  warzone: 500
+
+deathban:
+  spawn:
+    - 0
+    - 100
+    - 0
+    - world
+
+worlds:
+  end: 'world'
+  nether: 'world'
+
+combat:
+  allow-end-portal-enter: false
+  command-list: #Blacklist means these commands are disabled in combat, whitelist means you can ONLY use these commands in combat
+    - spawn
+    - clear
+    - heal
+    - feed
+    - repair
+    - fly
+    - fix
+    - enderchest
+    - top
+    - f home
+    - faction home
+    - t home
+    - team home
+
+limiters:
+  world-border: 2000

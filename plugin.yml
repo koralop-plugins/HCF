@@ -1,0 +1,5 @@
+main: Koralop\HCF\HCFLoader
+api:
+  - 3.20.0
+version: 1.0
+name: HCF
